@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Task_Management.Models.TaskItem>
+
+@{
+    ViewData["Title"] = "TaskItem";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>TaskItem</h1>
+
+<p>
+    <a class="btn btn-outline-success" asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AssignmentEmployee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.statusId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DueDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AssignmentEmployee)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.statusId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DueDate)
+            </td>
+            <td>
+                    <a class="btn btn-outline-primary btn-sm" asp-action="Edit" asp-route-id="@item.TaskId">Edit</a>
+
+                    <a class="btn btn-outline-secondary btn-sm" asp-action="Delete" asp-route-id="@item.TaskId" onclick="return confirm('are you sure you want to delete @item.TaskId')">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

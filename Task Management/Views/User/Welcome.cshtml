@@ -1,0 +1,30 @@
+﻿@model Task_Management.Models.User
+
+@{
+    ViewData["Title"] = "Welcome";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="navbar bg-light border-buttom border-body rounded p-2" >
+     <h2 class="text-dark"> Welcome @Model.Name</h2>
+    <div >
+        <a class="btn btn-outline-danger px-4" asp-action="Logout">Logout</a>
+    </div>
+</div>
+<br />
+<hr />
+
+<div class=" d-flex justify-content-center align-items-center">
+    <div>
+        <img src="https://img.freepik.com/free-vector/employee-celebration-concept-illustration_114360-16451.jpg" alt="Employee" />
+        <a class="btn btn-outline-success" asp-action="Employee" asp-controller="Employee">Employee list</a>
+    </div>
+    <br />
+    <div>
+        <img src="https://cdn3d.iconscout.com/3d/premium/thumb/task-management-3d-illustration-download-in-png-blend-fbx-gltf-file-formats--board-time-schedule-working-organization-organizing-project-pack-people-illustrations-3831627.png" alt="TM" />
+        <a   class="btn btn-outline-warning" asp-action="TaskItem" asp-controller="TaskItem">Task Manager</a>
+    </div>
+   
+</div>
+<br />
+
